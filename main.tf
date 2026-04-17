@@ -1,8 +1,19 @@
-provider "aws" {
-  region = "us-east-1"
+terraform {
+  required_version = ">= 1.5.0"
+
+  required_providers {
+    alicloud = {
+      source  = "aliyun/alicloud"
+      version = "~> 1.0"
+    }
+  }
 }
 
-resource "aws_instance" "demo" {
-  ami           = "ami-0c02fb55956c7d316"
-  instance_type = "t2.micro"
+provider "alicloud" {
+  region = "cn-hangzhou"
+}
+
+resource "alicloud_resource_manager_resource_group" "demo" {
+  display_name = "tf-demo-group"
+  name         = "tf-demo-group"
 }
