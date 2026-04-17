@@ -28,7 +28,7 @@ resource "alicloud_instance" "demo" {
 
   # 对齐控制台里的 ESSD AutoPL 20GiB
   system_disk_category = "cloud_auto"
-  system_disk_size     = 20
+  system_disk_size     = 21
 
   vswitch_id      = "vsw-bp1fd12ephv5gskixctys"
   security_groups = ["sg-bp1ft576ohr29b383u6n"]
