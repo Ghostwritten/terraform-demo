@@ -16,4 +16,5 @@ resource "alicloud_instance" "demo" {
   vswitch_id                 = "vsw-bp1fd12ephv5gskixctys"
   security_groups            = ["sg-bp1ft576ohr29b383u6n"]
   internet_max_bandwidth_out = 1
+  password = "YourPassword123!"
 }
