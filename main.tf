@@ -14,6 +14,6 @@ provider "alicloud" {
 }
 
 resource "alicloud_resource_manager_resource_group" "demo" {
-  display_name = "tf-demo-group"
-  name         = "tf-demo-group"
+  display_name        = "tf-demo-group"
+  resource_group_name = "tf-demo-group"
 }
