@@ -13,11 +13,17 @@ provider "alicloud" {
   region = "cn-hangzhou"
 }
 
+data "alicloud_instance_types" "demo" {
+  availability_zone = "cn-hangzhou-b"
+  cpu_core_count    = 2
+  memory_size       = 4
+}
+
 resource "alicloud_instance" "demo" {
   instance_name = "tf-demo-ecs"
 
-  instance_type     = "ecs.c6.large"   # 推荐先用这个，稳定
-  availability_zone = "cn-hangzhou-b"  # 必须和你的 vswitch 一致
+  instance_type     = data.alicloud_instance_types.demo.instance_types[0].id
+  availability_zone = "cn-hangzhou-b"
 
   image_id = "aliyun_3_x64_20G_alibase_20260326.vhd"
 
@@ -27,7 +33,13 @@ resource "alicloud_instance" "demo" {
   vswitch_id      = "vsw-bp1fd12ephv5gskixctys"
   security_groups = ["sg-bp1ft576ohr29b383u6n"]
 
+  internet_charge_type      = "PayByTraffic"
   internet_max_bandwidth_out = 1
 
-  password = "YourPassw0rd123!"  # ⚠️ 改成你自己的
+  password = var.password
+}
+
+variable "password" {
+  type      = string
+  sensitive = true
 }
