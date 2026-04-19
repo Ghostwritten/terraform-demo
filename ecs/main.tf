@@ -19,7 +19,7 @@ variable "password" {
 }
 
 resource "alicloud_instance" "demo" {
-  instance_name = "tf-demo-ecs-mini"
+  instance_name = "tf-demo-ecs-mini-v2"
 
   instance_type     = "ecs.e-c1m1.large"
   availability_zone = "cn-hangzhou-b"
@@ -28,13 +28,13 @@ resource "alicloud_instance" "demo" {
 
   # 对齐控制台里的 ESSD AutoPL 20GiB
   system_disk_category = "cloud_auto"
-  system_disk_size     = 21
+  system_disk_size     = 25
 
   vswitch_id      = "vsw-bp1fd12ephv5gskixctys"
   security_groups = ["sg-bp1ft576ohr29b383u6n"]
 
   # 控制台显示未分配公网 IP
-  internet_max_bandwidth_out = 0
+  internet_max_bandwidth_out = 1
 
   password = var.password
 }
