@@ -48,7 +48,7 @@ resource "alicloud_security_group_rule" "http" {
   ip_protocol       = "tcp"
   nic_type          = "intranet"
   policy            = "accept"
-  port_range        = "80/80"
+  port_range        = "9000/9000"
   priority          = 1
   security_group_id = "sg-bp1ft576ohr29b383u6n"
   cidr_ip           = "0.0.0.0/0"
