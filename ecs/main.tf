@@ -38,3 +38,15 @@ resource "alicloud_instance" "demo" {
 
   password = var.password
 }
+
+output "instance_id" {  
+value = alicloud_instance.demo.id  
+}  
+  
+output "instance_name" {  
+value = alicloud_instance.demo.instance_name  
+}  
+  
+output "private_ip" {  
+value = alicloud_instance.demo.private_ip  
+}
