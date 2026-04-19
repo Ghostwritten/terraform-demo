@@ -43,15 +43,15 @@ resource "alicloud_instance" "demo" {
  }
 }
 
-resource "alicloud_security_group_rule" "http" {  
-  type              = "ingress"  
-  ip_protocol       = "tcp"  
-  nic_type          = "intranet"  
-  policy            = "accept"  
-  port_range        = "80/80"  
-  priority          = 1  
-  security_group_id = "sg-bp1ft576ohr29b383u6n"  
-  cidr_ip           = "0.0.0.0/0"  
+resource "alicloud_security_group_rule" "http" {
+  type              = "ingress"
+  ip_protocol       = "tcp"
+  nic_type          = "internet"
+  policy            = "accept"
+  port_range        = "80/80"
+  priority          = 1
+  security_group_id = "sg-bp1ft576ohr29b383u6n"
+  cidr_ip           = "0.0.0.0/0"
 }
 
 output "instance_id" {  
