@@ -46,7 +46,7 @@ resource "alicloud_instance" "demo" {
 resource "alicloud_security_group_rule" "http" {
   type              = "ingress"
   ip_protocol       = "tcp"
-  nic_type          = "internet"
+  nic_type          = "intranet"
   policy            = "accept"
   port_range        = "80/80"
   priority          = 1
