@@ -1,0 +1,27 @@
+region                = "cn-hangzhou"
+environment           = "dev"
+project_name          = "terraform-demo"
+
+create_resource_group = true
+resource_group_name   = "tf-demo-learning-rg"
+
+create_ecs         = false
+instance_name      = "tf-demo-ecs"
+instance_type      = "ecs.e-c1m1.large"
+availability_zone  = "cn-hangzhou-b"
+system_disk_size   = 20
+bandwidth_out      = 0
+instance_count     = 1
+enable_scale_lab   = false
+
+# 仅在 create_ecs = true 时填写
+vpc_id             = "vpc-xxxxxxxx"
+vswitch_id         = "vsw-xxxxxxxx"
+instance_password  = "ReplaceWithAStrongPassword123!"
+
+ssh_cidrs  = ["0.0.0.0/0"]
+http_cidrs = ["0.0.0.0/0"]
+
+common_tags = {
+  Owner = "learning"
+}
