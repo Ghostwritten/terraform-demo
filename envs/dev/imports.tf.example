@@ -1,0 +1,19 @@
+# Example 1: import an existing resource group into Terraform management.
+#
+# 1. Keep create_resource_group = true so the target address exists
+# 2. Set resource_group_name to match the real resource group name
+# 3. Copy this file to imports.tf at the repository root
+# 4. Run terraform plan/apply with your dev tfvars
+
+import {
+  to = alicloud_resource_manager_resource_group.this[0]
+  id = "rg-xxxxxxxx"
+}
+
+# Example 2: import an existing ECS instance into the module address you plan to manage.
+# Only use this after you have fully matched the instance arguments in code.
+#
+# import {
+#   to = module.ecs_instance[0].alicloud_instance.this[0]
+#   id = "i-xxxxxxxx"
+# }
